@@ -150,7 +150,7 @@ X, y = input_sequences[:,:-1], input_sequences[:,-1]
 # Define parameters
 head_size = 512
 num_heads = 8
-ff_dim = 1024
+ff_dim = 720
 num_layers = 12
 dropout = 0.2
 

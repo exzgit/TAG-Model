@@ -52,5 +52,5 @@ def get_current_time():
 
 while True:
     prompt = input("\033[92m" + "PROMPT >> " + "\033[0m")
-    response =  generate_text(model, tokenizer, prompt, temperature=0.7)
+    response =  generate_text(model, tokenizer, prompt, temperature=0.5)
     print("\033[92m" + "GENERATE >> " + "\033[0m" + " " + "\033[96m" + response + "\033[0m")

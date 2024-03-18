@@ -164,6 +164,8 @@ checkpoint_callback = ModelCheckpoint(
     save_best_only=True
 )
 
+
+
 # Build and compile the transformer model
 model = build_transformer_model(max_sequence_len - 1, total_words, head_size, num_heads, ff_dim, num_layers, dropout)
 model.compile(optimizer=Adam(learning_rate=0.0001), loss="sparse_categorical_crossentropy", metrics=['accuracy'])

@@ -18,15 +18,16 @@ The TAG Model uses the Transformer architecture, which consists of multiple Tran
 
 ### Repository Structure
 ```txt
-├── dataset/                   # Directory for data files or directories
-├── models/                    # Directory for trained models or model checkpoints
 ├── checkpoint/                # Directory to temporarily store training parameters/weights
+├── dataset/                   # Directory for data files or directories
+├── image/                     # Directory to save GUI Visualization Plot
+├── models/                    # Directory for trained models or model checkpoints
 ├── notebook/                  # Directory for notebook code
 ├── scripts/                   # Directory for scripts
 ├── LICENSE                    # License file
+├── NOTE.md                    # Rules and Note Models
 └── README.md                  # Readme file providing information about the repository
 ```
-
 
 ### Getting Started
 To get started with using or contributing to this project, follow these steps:

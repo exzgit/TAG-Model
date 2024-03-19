@@ -148,10 +148,10 @@ input_sequences = np.array(pad_sequences(input_sequences, maxlen=max_sequence_le
 X, y = input_sequences[:,:-1], input_sequences[:,-1]
 
 # Define parameters
-head_size = 512
+head_size = 720
 num_heads = 8
-ff_dim = 720
-num_layers = 12
+ff_dim = 2045
+num_layers = 14
 dropout = 0.2
 
 # Inisialisasi callback ModelCheckpoint
@@ -171,7 +171,7 @@ model = build_transformer_model(max_sequence_len - 1, total_words, head_size, nu
 model.compile(optimizer=Adam(learning_rate=0.0001), loss="sparse_categorical_crossentropy", metrics=['accuracy'])
 
 # Train the model
-history = model.fit(X, y, batch_size=64, epochs=50, validation_split=0.3, verbose=1, callbacks=[checkpoint_callback])
+history = model.fit(X, y, batch_size=245, epochs=50, validation_split=0.3, verbose=1, callbacks=[checkpoint_callback])
 
 # Load the best weights
 model.load_weights(checkpoint_path)
@@ -180,7 +180,7 @@ model.load_weights(checkpoint_path)
 model.save("TAGModel/models/TAGModel")
 
 # Predict function
-def generate_text(model, tokenizer, initial_text, temperature=1.0, max_length=50):
+def generate_text(model, tokenizer, initial_text, temperature=1.0, max_length=1024):
     input_text = initial_text + " [-START-]"
     output_text = "[-START-] "
     for _ in range(max_length):
@@ -215,10 +215,10 @@ print("\033[92m" + "GENERATE >> " + "\033[0m" + " " + "\033[96m" + response + "\
 
 
 # Training visualization using scatter plot
-plt.plot(history.history['loss'], label='Training Loss')
-plt.plot(history.history['val_loss'], label='Validation Loss')
-plt.plot(history.history['accuracy'], label='Training Accuracy')
-plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
+plt.scatter(range(1, len(history.history['loss']) + 1), history.history['loss'], label='Training Loss')
+plt.scatter(range(1, len(history.history['val_loss']) + 1), history.history['val_loss'], label='Validation Loss')
+plt.scatter(range(1, len(history.history['accuracy']) + 1), history.history['accuracy'], label='Training Accuracy')
+plt.scatter(range(1, len(history.history['val_accuracy']) + 1), history.history['val_accuracy'], label='Validation Accuracy')
 plt.xlabel('Epoch')
 plt.ylabel('Metric Value')
 plt.title('Training History')

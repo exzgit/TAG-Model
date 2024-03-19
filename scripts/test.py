@@ -3,7 +3,6 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import pickle
-import datetime
 
 # Load tokenizer
 with open("tokenizer.pkl", "rb") as tokenizer_file:
@@ -16,7 +15,7 @@ model = load_model("TAGModel/models/TAGModel")
 max_sequence_len = model.input_shape[1] + 1
 
 
-def generate_text(model, tokenizer, initial_text, temperature=1.0, max_length=50):
+def generate_text(model, tokenizer, initial_text, temperature=1.0, max_length=254):
     input_text = initial_text + " [-START-]"
     output_text = "[-START-]"
     for _ in range(max_length):
@@ -35,7 +34,6 @@ def generate_text(model, tokenizer, initial_text, temperature=1.0, max_length=50
             predicted_word = tokenizer.index_word[predicted_word_index]
         
         if predicted_word == '[-END-]':
-            predicted_word = get_current_time()
             break
 
         input_text += ' ' + predicted_word
@@ -45,10 +43,6 @@ def generate_text(model, tokenizer, initial_text, temperature=1.0, max_length=50
 
 
     return output_text
-
-def get_current_time():
-    current_time = datetime.datetime.now()
-    return current_time
 
 while True:
     prompt = input("\033[92m" + "PROMPT >> " + "\033[0m")

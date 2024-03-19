@@ -7,3 +7,6 @@
 .webp filter=lfs diff=lfs merge=lfs -text
 mp4 filter=lfs diff=lfs merge=lfs -text
 .mp3 filter=lfs diff=lfs merge=lfs -text
+.ipynb filter=lfs diff=lfs merge=lfs -text
+checkpoint filter=lfs diff=lfs merge=lfs -text
+TAGModel filter=lfs diff=lfs merge=lfs -text

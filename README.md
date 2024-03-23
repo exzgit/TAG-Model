@@ -22,7 +22,6 @@ The TAG Model uses the Transformer architecture, which consists of multiple Tran
 ├── dataset/                   # Directory for data files or directories
 ├── image/                     # Directory to save GUI Visualization Plot
 ├── models/                    # Directory for trained models or model checkpoints
-├── notebook/                  # Directory for notebook code
 ├── scripts/                   # Directory for scripts
 ├── LICENSE                    # License file
 ├── NOTE.md                    # Rules and Note Models
@@ -34,7 +33,7 @@ To get started with using or contributing to this project, follow these steps:
 
 **1. Clone the Repository:**
 ```
-git clone https://github.com/<username>/<repository>.git
+git clone https://github.com/exzgit/TAG-Model.git
 ```
 
 

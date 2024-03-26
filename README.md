@@ -75,4 +75,7 @@ This project is licensed under the [GNU GENERAL PUBLIC LICENSE(GPL).](LICENSE)
 ### Contact
 For any inquiries or discussions regarding this project, feel free to contact Ezra Valen Ne Tofa at [officialbangezz@gmail.com](mailto:officialbangezz@gmail.com)
 
+### Support
+[Buy me a coffee](https://trakteer.id/ExzDeveloper/tip)
+
 Thank you for visiting!
